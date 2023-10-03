@@ -1,12 +1,16 @@
-def display_odd_numbers(start, end):
-    for num in range(start, end + 1):
-        if num % 2 != 0:
-            print(num)
+def draw_line():
+    length = int(input("Введіть довжину лінії: "))
+    direction = input("Введіть напрямок ('horizontal' або 'vertical'): ")
+    character = input("Введіть символ: ")
 
-num1 = int(input("Введіть перше число: "))
-num2 = int(input("Введіть друге число: "))
+    if direction == 'horizontal':
+        line = character * length
+    elif direction == 'vertical':
+        line = '\n'.join(character for _ in range(length))
+    else:
+        print("Неправильний напрямок. Використовуйте 'horizontal' або 'vertical'.")
+        return
 
-min_num = min(num1, num2)
-max_num = max(num1, num2)
+    print(line)
 
-display_odd_numbers(min_num, max_num)
+draw_line()
