@@ -1,11 +1,15 @@
-def sum_numbers_in_range(start, end):
-    total = 0
-    for number in range(start, end + 1):
-        total += number
-    return total
+def is_prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
 
-start = int(input("Введіть початкове число: "))
-end = int(input("Введіть кінцеве число: "))
+    return True
 
-result = sum_numbers_in_range(start, end)
-print(f"Сума чисел у діапазоні від {start} до {end}: {result}")
+num = int(input("Введіть число: "))
+
+if is_prime(num):
+    print(f"{num} є простим числом.")
+else:
+    print(f"{num} не є простим числом.")
