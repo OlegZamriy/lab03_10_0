@@ -1,15 +1,17 @@
-def is_prime(number):
-    if number <= 1:
+def is_happy_six_digit_number(number):
+    if not isinstance(number, int) or number < 100000 or number > 999999:
         return False
-    for i in range(2, int(number ** 0.5) + 1):
-        if number % i == 0:
-            return False
 
-    return True
+    digits = [int(digit) for digit in str(number)]
 
-num = int(input("Введіть число: "))
+    if sum(digits[:3]) == sum(digits[3:]):
+        return True
+    else:
+        return False
 
-if is_prime(num):
-    print(f"{num} є простим числом.")
+num = int(input("Введіть шестизначне число: "))
+
+if is_happy_six_digit_number(num):
+    print(f"{num} є щасливим шестизначним числом.")
 else:
-    print(f"{num} не є простим числом.")
+    print(f"{num} не є щасливим шестизначним числом.")
